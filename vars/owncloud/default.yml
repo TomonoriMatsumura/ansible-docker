@@ -1,0 +1,9 @@
+work_dir: /tmp/docker/owncloud
+
+# docker env fileに渡す値の設定
+version: 9.1.7
+domain: 160.16.202.227 
+admin_username: owncloud 
+admin_password: owncloud
+http_port: 80
+https_port: 443

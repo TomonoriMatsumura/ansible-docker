@@ -1,0 +1,5 @@
+- name: ownCloudコンテナを停止する
+  become: yes
+  shell: docker-compose stop
+  args:
+    chdir: "{{ work_dir }}/owncloud"

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars_files:
+    - vars/owncloud/default.yml
+  become: yes 
+  
+  roles:
+    - owncloud/stop
+    - docker-commands/ps

@@ -1,0 +1,7 @@
+- name: 稼働中のDockerコンテナを調べる 
+  become: yes
+  shell: docker ps
+  register: DOCKER_PS
+
+- name: 稼働中のDockerコンテナを表示する
+  debug: var=DOCKER_PS.stdout_lines

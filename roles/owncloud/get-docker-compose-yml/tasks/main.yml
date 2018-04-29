@@ -1,0 +1,21 @@
+- name: 作業用ディレクトリを初期化する
+  include_role:
+    name: working-directory/initialize 
+
+- name: docker-docker.yml を取得する
+  become: yes
+  git:
+    repo: https://github.com/TomonoriMatsumura/docker.git 
+    dest: '{{ work_dir }}'
+
+- name: 環境ファイル（.env）を初期化（削除）する
+  become: yes
+  file:
+    path: "{{ work_dir }}/owncloud/.env"
+    state: absent
+
+- name: 環境ファイル（.env）を作成する
+  become: yes
+  template:
+    src: .env
+    dest: "{{ work_dir }}/owncloud/.env"
